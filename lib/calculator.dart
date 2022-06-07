@@ -10,21 +10,17 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  Widget calcButton(String btnText, Color btnColor, Color txtColor) {
-    return Container(
-      child: ElevatedButton(
-        onPressed: () => {
-          //TODO
-        },
-        child: Text(
-          btnText,
-          style: TextStyle(fontSize: 25, color: txtColor),
-        ),
-        style: ElevatedButton.styleFrom(
-          fixedSize: Size(70, 70),
-          shape: CircleBorder(),
-          primary: btnColor,
-        ),
+  Widget numButton(String btnText, Color btnColor, Color txtColor) {
+    return ElevatedButton(
+      onPressed: () => {},
+      child: Text(
+        btnText,
+        style: TextStyle(fontSize: 25, color: txtColor),
+      ),
+      style: ElevatedButton.styleFrom(
+        fixedSize: Size(70, 70),
+        shape: CircleBorder(),
+        primary: btnColor,
       ),
     );
   }
@@ -58,40 +54,40 @@ class _CalculatorState extends State<Calculator> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                calcButton("C", Colors.grey, Colors.black),
-                calcButton("+/-", Colors.grey, Colors.black),
-                calcButton("%", Colors.grey, Colors.black),
-                calcButton("/", Colors.orange, Colors.white),
+                numButton("C", Colors.grey, Colors.black),
+                numButton("+/-", Colors.grey, Colors.black),
+                numButton("%", Colors.grey, Colors.black),
+                numButton("/", Colors.orange, Colors.white),
               ],
             ),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                calcButton("7", (Colors.grey[850])!, Colors.white),
-                calcButton("8", (Colors.grey[850])!, Colors.white),
-                calcButton("9", (Colors.grey[850])!, Colors.white),
-                calcButton("x", Colors.orange, Colors.white),
+                numButton("7", (Colors.grey[850])!, Colors.white),
+                numButton("8", (Colors.grey[850])!, Colors.white),
+                numButton("9", (Colors.grey[850])!, Colors.white),
+                numButton("x", Colors.orange, Colors.white),
               ],
             ),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                calcButton("4", (Colors.grey[850])!, Colors.white),
-                calcButton("5", (Colors.grey[850])!, Colors.white),
-                calcButton("6", (Colors.grey[850])!, Colors.white),
-                calcButton("-", Colors.orange, Colors.white),
+                numButton("4", (Colors.grey[850])!, Colors.white),
+                numButton("5", (Colors.grey[850])!, Colors.white),
+                numButton("6", (Colors.grey[850])!, Colors.white),
+                numButton("-", Colors.orange, Colors.white),
               ],
             ),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                calcButton("1", (Colors.grey[850])!, Colors.white),
-                calcButton("2", (Colors.grey[850])!, Colors.white),
-                calcButton("3", (Colors.grey[850])!, Colors.white),
-                calcButton("+", Colors.orange, Colors.white),
+                numButton("1", (Colors.grey[850])!, Colors.white),
+                numButton("2", (Colors.grey[850])!, Colors.white),
+                numButton("3", (Colors.grey[850])!, Colors.white),
+                numButton("+", Colors.orange, Colors.white),
               ],
             ),
             SizedBox(height: 10),
@@ -115,8 +111,8 @@ class _CalculatorState extends State<Calculator> {
                     primary: (Colors.grey[850])!,
                   ),
                 ),
-                calcButton(".", (Colors.grey[850])!, Colors.white),
-                calcButton("=", Colors.orange, Colors.white),
+                numButton(".", (Colors.grey[850])!, Colors.white),
+                numButton("=", Colors.orange, Colors.white),
               ],
             ),
             SizedBox(height: 10),
