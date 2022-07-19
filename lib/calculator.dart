@@ -12,10 +12,15 @@ class Calculator extends StatefulWidget {
 class _CalculatorState extends State<Calculator> {
   Widget numButton(String btnText, Color btnColor, Color txtColor) {
     return ElevatedButton(
-      onPressed: () => {},
+      onPressed: () {
+        calculate(btnText);
+      },
       child: Text(
         btnText,
-        style: TextStyle(fontSize: 25, color: txtColor),
+        style: TextStyle(
+          fontSize: 25,
+          color: txtColor,
+        ),
       ),
       style: ElevatedButton.styleFrom(
         fixedSize: Size(70, 70),
@@ -44,7 +49,7 @@ class _CalculatorState extends State<Calculator> {
                 Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Text(
-                    "0",
+                    text,
                     textAlign: TextAlign.left,
                     style: TextStyle(color: Colors.white, fontSize: 80),
                   ),
@@ -120,5 +125,47 @@ class _CalculatorState extends State<Calculator> {
         ),
       ),
     );
+  }
+
+  // Logic
+  int firstNumber = 0;
+  int secondNumber = 0;
+  String result = "";
+  String text = "";
+  String operation = "";
+
+  void calculate(String btnText) {
+    if (btnText == "C") {
+      result = "";
+      text = "";
+      firstNumber = 0;
+      secondNumber = 0;
+    } else if (btnText == "+" ||
+        btnText == "-" ||
+        btnText == "x" ||
+        btnText == "/") {
+      firstNumber = int.parse(text);
+      result = "";
+      operation = btnText;
+    } else if (btnText == "=") {
+      secondNumber = int.parse(text);
+      if (operation == "+") {
+        result = (firstNumber + secondNumber).toString();
+      }
+      if (operation == "-") {
+        result = (firstNumber - secondNumber).toString();
+      }
+      if (operation == "x") {
+        result = (firstNumber * secondNumber).toString();
+      }
+      if (operation == "/") {
+        result = (firstNumber ~/ secondNumber).toString();
+      }
+    } else {
+      result = int.parse(text + btnText).toString();
+    }
+    setState(() {
+      text = result;
+    });
   }
 }
